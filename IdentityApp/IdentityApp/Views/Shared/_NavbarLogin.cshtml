@@ -1,0 +1,27 @@
+﻿@if (User.Identity!.IsAuthenticated)
+{
+    <ul class="navbar-nav flex-grow-1">
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                @User.Identity.Name
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" asp-rout-returnurl="/Home/Index" asp-controller="Member" asp-action="Index">Profil</a>               
+                <a class="dropdown-item" asp-rout-returnurl="/Home/Index" asp-controller="Member" asp-action="UserEdit">Kullanıcı Güncelle</a>
+                <a class="dropdown-item" asp-rout-returnurl="/Home/Index" asp-controller="Member" asp-action="PasswordChange">Şifre Değiştir</a>
+                <a class="dropdown-item" asp-rout-returnurl="/Home/Index" asp-controller="Member" asp-action="logout">Çıkış Yap</a>
+            </div>
+        </li>
+    </ul>
+}
+else
+{
+    <ul class="navbar-nav flex-grow-1">
+        <li class="nav-item">
+            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="SignUp">Kayıt Ol</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="SignIn">Giriş Yap</a>
+        </li>
+    </ul>
+}
